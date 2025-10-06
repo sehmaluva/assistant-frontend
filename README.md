@@ -56,7 +56,7 @@ Make sure you have these installed:
 ### Installation
 1. Clone this repo (or download if you're not into git yet):
 ```bash
-git clone [repo-url]
+git clone https://github.com/sehmaluva/assistant-frontend.git
 cd assistant-frontend
 ```
 
