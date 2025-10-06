@@ -3,47 +3,49 @@
 @tailwind components;
 @tailwind utilities;
 
-/* AI Assistant Framework Design System */
+/* Personal AI Assistant Design System (natural, grounded palette) */
 @layer base {
   :root {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    /* A softer dark background with slightly warm neutrals */
+    --background: 220 12% 10%;
+    --foreground: 220 15% 92%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 220 10% 13%;
+    --card-foreground: 220 15% 92%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 220 10% 13%;
+    --popover-foreground: 220 15% 92%;
 
-    --primary: 217.2 91.2% 59.8%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    /* Muted teal as primary accent (not overly saturated) */
+    --primary: 188 32% 42%;
+    --primary-foreground: 188 15% 94%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 35 18% 32%;
+    --secondary-foreground: 35 30% 92%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 220 8% 22%;
+    --muted-foreground: 220 10% 65%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 25 32% 45%; /* warm amber accent for subtle highlights */
+    --accent-foreground: 25 40% 92%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 52% 40%;
+    --destructive-foreground: 0 40% 96%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 217.2 91.2% 59.8%;
+    --border: 220 8% 20%;
+    --input: 220 8% 20%;
+    --ring: 188 32% 42%;
 
     --radius: 0.5rem;
 
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-background: 220 12% 8%;
+    --sidebar-foreground: 220 15% 92%;
+    --sidebar-primary: 188 32% 42%;
+    --sidebar-primary-foreground: 188 30% 96%;
+    --sidebar-accent: 25 32% 28%;
+    --sidebar-accent-foreground: 25 30% 92%;
+    --sidebar-border: 220 8% 18%;
+    --sidebar-ring: 188 32% 42%;
   }
 }
 
@@ -80,23 +82,11 @@
   }
 }
 
-/* Custom animations for AI theme */
-@keyframes pulse-glow {
-  0%, 100% {
-    box-shadow: 0 0 5px rgba(59, 130, 246, 0.5);
-  }
-  50% {
-    box-shadow: 0 0 20px rgba(59, 130, 246, 0.8), 0 0 30px rgba(59, 130, 246, 0.6);
-  }
-}
+/* Remove flashy glow animations for a calmer aesthetic */
+.animate-pulse-glow { display: none; }
 
-.animate-pulse-glow {
-  animation: pulse-glow 2s ease-in-out infinite;
-}
-
-/* Gradient backgrounds for cards */
+/* Subtle card styling */
 .gradient-card {
-  background: linear-gradient(135deg, rgba(30, 41, 59, 0.8) 0%, rgba(51, 65, 85, 0.6) 100%);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(148, 163, 184, 0.1);
+  background: linear-gradient(135deg, hsl(var(--card)) 0%, hsl(220 10% 11%) 100%);
+  border: 1px solid hsl(var(--border));
 }

@@ -1,5 +1,4 @@
 
-import { useState } from 'react';
 import { Brain, Database, Cpu, TrendingUp, Zap, Users } from 'lucide-react';
 import StatusCard from '@/components/StatusCard';
 import ChatInterface from '@/components/ChatInterface';
@@ -9,18 +8,18 @@ const Dashboard = () => {
     <div className="space-y-6">
       {/* Header */}
       <div>
-        <h1 className="text-3xl font-bold text-white mb-2">AI Assistant Dashboard</h1>
-        <p className="text-slate-400">Monitor and interact with your modular AI framework</p>
+        <h1 className="text-3xl font-bold text-white mb-2">Your Personal AI Assistant</h1>
+        <p className="text-slate-400">Daily overview: tasks, conversations, performance & context</p>
       </div>
 
       {/* Status Cards Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <StatusCard
-          title="Active Models"
-          value="3"
-          description="OpenAI GPT-4, Local Fine-tuned, Claude"
-          icon={Brain}
-          trend={{ value: 15, label: "this week" }}
+          title="Focus Tasks"
+          value="4"
+          description="Due today"
+          icon={Zap}
+          trend={{ value: 1, label: "added" }}
         />
         <StatusCard
           title="Memory Usage"
@@ -30,10 +29,10 @@ const Dashboard = () => {
           trend={{ value: 8, label: "growth" }}
         />
         <StatusCard
-          title="Tools Available"
-          value="12"
-          description="Search, calc, file ops, etc."
-          icon={Zap}
+          title="Active Models"
+          value="3"
+          description="GPT-4, Local, Fine-tuned"
+          icon={Brain}
         />
         <StatusCard
           title="Conversations"
@@ -43,16 +42,16 @@ const Dashboard = () => {
           trend={{ value: 23, label: "vs last month" }}
         />
         <StatusCard
-          title="Processing Speed"
+          title="Avg Response"
           value="1.2s"
-          description="Avg response time"
+          description="Processing time"
           icon={Cpu}
           trend={{ value: -12, label: "improvement" }}
         />
         <StatusCard
-          title="Model Accuracy"
-          value="94.2%"
-          description="Evaluation metrics"
+          title="Task Completion"
+          value="78%"
+          description="Weekly progress"
           icon={TrendingUp}
           trend={{ value: 3, label: "improvement" }}
         />

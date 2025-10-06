@@ -19,9 +19,9 @@ const ChatInterface = () => {
     {
       id: '1',
       type: 'assistant',
-      content: 'Hello! I\'m your AI assistant. I can help you with internship management, research, and various other tasks. What would you like to work on today?',
+      content: "Hey! I'm here to help you stay organized. You can ask me to plan your day, capture a note, add tasks, recall past context, or summarize something you're working on. What would you like to do first?",
       timestamp: new Date(),
-      tools: ['memory', 'search']
+      tools: ['tasks', 'notes', 'memory']
     }
   ]);
   const [input, setInput] = useState('');
@@ -56,11 +56,11 @@ const ChatInterface = () => {
   };
 
   return (
-    <Card className="bg-slate-800/50 border-slate-700/50 h-full flex flex-col">
-      <CardHeader className="border-b border-slate-700/50">
+    <Card className="bg-[hsl(var(--card))] border-[hsl(var(--border))] h-full flex flex-col">
+      <CardHeader className="border-b border-[hsl(var(--border))]">
         <CardTitle className="text-white flex items-center gap-2">
-          <Bot className="h-5 w-5 text-blue-400" />
-          AI Assistant Chat
+          <Bot className="h-5 w-5 text-[hsl(var(--primary))]" />
+          Personal Assistant
         </CardTitle>
       </CardHeader>
       
@@ -75,8 +75,8 @@ const ChatInterface = () => {
                 <div className={`flex gap-3 max-w-[80%] ${message.type === 'user' ? 'flex-row-reverse' : 'flex-row'}`}>
                   <div className={`w-8 h-8 rounded-full flex items-center justify-center ${
                     message.type === 'user' 
-                      ? 'bg-gradient-to-br from-green-500 to-emerald-600' 
-                      : 'bg-gradient-to-br from-blue-500 to-purple-600'
+                      ? 'bg-[hsl(var(--primary))]/30 text-[hsl(var(--primary))]' 
+                      : 'bg-[hsl(var(--accent))]/25 text-[hsl(var(--accent))]'
                   }`}>
                     {message.type === 'user' ? (
                       <User className="h-4 w-4 text-white" />
@@ -85,19 +85,19 @@ const ChatInterface = () => {
                     )}
                   </div>
                   
-                  <div className={`rounded-lg p-3 ${
+                  <div className={`rounded-md p-3 ${
                     message.type === 'user'
-                      ? 'bg-green-600/20 border border-green-500/30'
-                      : 'bg-slate-700/50 border border-slate-600/50'
+                      ? 'bg-[hsl(var(--primary))/0.15] border border-[hsl(var(--primary))/0.35]'
+                      : 'bg-[hsl(var(--muted))] border border-[hsl(var(--border))]'
                   }`}>
-                    <p className="text-white text-sm">{message.content}</p>
+                    <p className="text-[hsl(var(--foreground))] text-sm leading-relaxed">{message.content}</p>
                     
                     {message.tools && (
                       <div className="flex gap-1 mt-2">
                         {message.tools.map((tool) => (
                           <span
                             key={tool}
-                            className="inline-flex items-center gap-1 px-2 py-1 text-xs bg-blue-500/20 text-blue-300 rounded border border-blue-500/30"
+                            className="inline-flex items-center gap-1 px-2 py-0.5 text-xs bg-[hsl(var(--accent))/0.18] text-[hsl(var(--accent))] rounded border border-[hsl(var(--accent))/0.35]"
                           >
                             <Zap className="h-3 w-3" />
                             {tool}
@@ -116,33 +116,32 @@ const ChatInterface = () => {
             
             {isTyping && (
               <div className="flex gap-3">
-                <div className="w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
-                  <Bot className="h-4 w-4 text-white" />
+                <div className="w-8 h-8 rounded-full bg-[hsl(var(--accent))/0.25] flex items-center justify-center">
+                  <Bot className="h-4 w-4 text-[hsl(var(--accent))]" />
                 </div>
-                <div className="bg-slate-700/50 border border-slate-600/50 rounded-lg p-3">
+                <div className="bg-[hsl(var(--muted))] border border-[hsl(var(--border))] rounded-md p-3">
                   <div className="flex gap-1">
-                    <div className="w-2 h-2 bg-blue-400 rounded-full animate-bounce" />
-                    <div className="w-2 h-2 bg-blue-400 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }} />
-                    <div className="w-2 h-2 bg-blue-400 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }} />
+                    <div className="w-2 h-2 bg-[hsl(var(--accent))] rounded-full animate-bounce" />
+                    <div className="w-2 h-2 bg-[hsl(var(--accent))] rounded-full animate-bounce" style={{ animationDelay: '0.1s' }} />
+                    <div className="w-2 h-2 bg-[hsl(var(--accent))] rounded-full animate-bounce" style={{ animationDelay: '0.2s' }} />
                   </div>
                 </div>
               </div>
             )}
           </div>
         </ScrollArea>
-        
-        <div className="border-t border-slate-700/50 p-4">
+        <div className="border-t border-[hsl(var(--border))] p-4 bg-[hsl(var(--card))]">
           <div className="flex gap-2">
             <Input
               value={input}
               onChange={(e) => setInput(e.target.value)}
               placeholder="Ask me anything..."
-              className="bg-slate-700/50 border-slate-600/50 text-white placeholder:text-slate-400"
+              className="bg-[hsl(var(--muted))] border-[hsl(var(--border))] text-[hsl(var(--foreground))] placeholder:text-[hsl(var(--muted-foreground))]"
               onKeyPress={(e) => e.key === 'Enter' && handleSend()}
             />
             <Button 
               onClick={handleSend}
-              className="bg-blue-600 hover:bg-blue-700 text-white"
+              className="bg-[hsl(var(--primary))] hover:brightness-110 text-[hsl(var(--primary-foreground))]"
               disabled={!input.trim() || isTyping}
             >
               <Send className="h-4 w-4" />

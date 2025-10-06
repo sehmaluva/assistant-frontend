@@ -1,16 +1,17 @@
-# AI Assistant Dashboard - Frontend
+# Personal AI Assistant Dashboard
 
 ## Overview
-Hey there! This is my AI Assistant Dashboard project that I built for funny. It's basically a cool web app that lets you manage and interact with different AI models in one place. Think of it like a control center for AI stuff!
+This project is a personal AI assistant dashboard focused on daily productivity, lightweight note capture, task tracking, planning, and contextual memory. Instead of feeling like a generic “AI control panel”, the interface aims to be calm, utility‑driven, and something you can leave open all day.
 
-- **Monitor AI Models**  - See which models are running (GPT-4, Claude, local models, etc.)
-- **Check System Status** - Keep track of memory usage, performance metrics
-- **Chat Interface**  - Actually talk to your AI assistants
-- **Analytics**  - View usage stats and performance data
-- **Memory Management**  - Handle vector embeddings and context storage
-- **Tools Integration**  - Manage different AI tools and utilities
+- **Chat** – Natural interaction (ask, recall, summarize, plan)
+- **Tasks** – Simple focused task list your assistant can reference
+- **Notes** – Quick scratchpad for ideas and meeting context
+- **Planner** – Time blocks + energy guidance for intentional work
+- **Memory** – View how contextual stores are filling up
+- **Models & Tools** – Still available, but secondary to daily flow
+- **Insights** – Light analytics for usage + performance
 
-## Tech Stack (The Cool Stuff I Used)
+## Tech Stack
 - **React 18** - For the main UI framework
 - **TypeScript** - Because my professor said it's important for large projects
 - **Vite** - Super fast build tool (way better than Create React App!)
@@ -21,7 +22,7 @@ Hey there! This is my AI Assistant Dashboard project that I built for funny. It'
 - **Lucide Icons** - Pretty icons everywhere
 - **Recharts** - For those sweet data visualizations
 
-## Project Structure
+## Project Structure (simplified)
 ```
 src/
 ├── components/          # Reusable UI components
@@ -32,10 +33,13 @@ src/
 │   └── StatusCard.tsx
 ├── pages/              # Different app pages
 │   ├── Dashboard.tsx   # Main dashboard
-│   ├── Models.tsx      # AI models management
-│   ├── Memory.tsx      # Memory & storage
-│   ├── Tools.tsx       # Tools integration
-│   ├── Analytics.tsx   # Data visualization
+│   ├── Tasks.tsx       # Personal task list
+│   ├── Notes.tsx       # Note capture & recall
+│   ├── Planner.tsx     # Time blocks + guidance
+│   ├── Models.tsx      # Models (now secondary)
+│   ├── Memory.tsx      # Memory stores
+│   ├── Tools.tsx       # Tool management
+│   ├── Analytics.tsx   # Insights
 │   └── NotFound.tsx    # 404 page
 ├── hooks/              # Custom React hooks
 ├── lib/                # Utility functions
@@ -85,7 +89,7 @@ That's it! You should see the dashboard running.
 - `npm run lint` - Check for code issues
 - `npm run preview` - Preview production build
 
-## Features I'm Proud Of 
+## Core Features 
 - **Responsive Design** - Works on desktop, tablet, and mobile
 - **Dark Theme** - Because dark mode is cool (and easier on the eyes)
 - **Modern UI** - Uses the latest design patterns
@@ -93,22 +97,25 @@ That's it! You should see the dashboard running.
 - **Fast Performance** - Vite makes everything super snappy
 - **Modular Components** - Easy to maintain and extend
 
-## Pages Breakdown
-1. **Dashboard** - Main overview with status cards and metrics
-2. **Models** - Manage different AI models (GPT-4, Claude, custom models)
-3. **Memory** - Handle vector databases and context storage
-4. **Tools** - Integration with various AI tools and APIs
-5. **Analytics** - Charts and graphs showing usage patterns
+## Pages
+1. **Dashboard** – High‑level overview (focus tasks, active models, progress)
+2. **Tasks** – Fast capture + completion tracking
+3. **Notes** – Small, disposable context entries the assistant can reference
+4. **Planner** – Daily time blocks + energy‑based guidance
+5. **Memory** – Structured stores (short‑term, long‑term, episodic, cache)
+6. **Models** – Visibility into model set (local / hosted / tuned)
+7. **Tools** – Enable / configure functional tools
+8. **Insights** – Usage, response time, distribution
 
-## Future Features (My TODO List)
-- [ ] Internship Assistant integration
-- [ ] Email Assistant module
-- [ ] Research Assistant tools
-- [ ] Training Pipeline management
-- [ ] System Health monitoring
-- [ ] Real-time notifications
-- [ ] User authentication
-- [ ] Custom model fine-tuning interface
+## Roadmap
+- [ ] Routines (automated morning / evening summary)
+- [ ] Preferences panel (tone, verbosity, focus areas)
+- [ ] Local-first encrypted note store
+- [ ] Calendar + email integrations (privacy‑aware)
+- [ ] Inline summarization of selected text
+- [ ] Voice capture + quick transcript to notes
+- [ ] Lightweight mobile layout optimizations
+- [ ] Model selection per conversation thread
 
 ## What I Learned Building This
 - How to structure a large React application
@@ -118,11 +125,12 @@ That's it! You should see the dashboard running.
 - State management without Redux (React Query is amazing!)
 - Building responsive layouts
 
-## Issues I Ran Into (And How I Fixed Them)
-- **Initial Bundle Size** - Fixed by using Vite's code splitting
-- **Type Errors** - Learned to properly type my components and props
-- **Responsive Layout** - Tailwind's grid system saved me here
-- **Component Re-renders** - Used React.memo and useCallback for optimization
+## Design Notes
+- Color palette intentionally muted & natural (teal + warm neutrals) to avoid “neon AI” aesthetic
+- Gradients and glow effects removed/reduced for a calmer workspace feel
+- Components biased toward dense information without feeling noisy
+- Chat phrasing adjusted to feel like a personal helper, not a marketing bot
+- Pages mapped to real workflows: capture → plan → execute → reflect
 
 ## Contributing
 If you want to contribute (or if this is a group project):
@@ -132,8 +140,8 @@ If you want to contribute (or if this is a group project):
 4. Test everything works
 5. Create a pull request
 
-## Contact
-If you have questions about this project, feel free to reach out! I'm always happy to explain how something works or help debug issues.
+## Contact / Use
+This is a personal project. Feel free to fork and adapt. Attribution appreciated but not required.
 
 ---
 *Built with ❤️ and lots of coffee during late-night coding sessions* ☕

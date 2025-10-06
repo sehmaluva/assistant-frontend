@@ -12,6 +12,9 @@ import Models from "./pages/Models";
 import Memory from "./pages/Memory";
 import Tools from "./pages/Tools";
 import Analytics from "./pages/Analytics";
+import Tasks from "./pages/Tasks";
+import Notes from "./pages/Notes";
+import Planner from "./pages/Planner";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -37,6 +40,9 @@ const App = () => {
               <main className="flex-1 p-6 overflow-auto">
                 <Routes>
                   <Route path="/" element={<Dashboard />} />
+                  <Route path="/tasks" element={<Tasks />} />
+                  <Route path="/notes" element={<Notes />} />
+                  <Route path="/planner" element={<Planner />} />
                   <Route path="/models" element={<Models />} />
                   <Route path="/memory" element={<Memory />} />
                   <Route path="/tools" element={<Tools />} />
